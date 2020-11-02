@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION isDate(_ TEXT)
+RETURNS boolean
+AS
+$$
+DECLARE
+  d date;
+BEGIN
+  d = _::date;
+  RETURN true;
+  EXCEPTION WHEN others THEN
+    RETURN FALSE;
+END;
+$$ LANGUAGE plpgsql IMMUTABLE;

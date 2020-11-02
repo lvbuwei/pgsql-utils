@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION isTime(_ TEXT)
+RETURNS boolean
+AS
+$$
+DECLARE
+  d time;
+BEGIN
+  d = _::time;
+  RETURN true;
+  EXCEPTION WHEN others THEN
+    RETURN FALSE;
+END;
+$$ LANGUAGE plpgsql IMMUTABLE;
