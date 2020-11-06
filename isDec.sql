@@ -1,16 +1,14 @@
-CREATE OR REPLACE FUNCTION isDate(_ TEXT)
+CREATE OR REPLACE FUNCTION isDec(_ TEXT)
 RETURNS boolean
 AS
 $$
 DECLARE
-  d date;
+  d decimal(15,4);
 BEGIN
-  IF _ IS NULL THEN
-    RETURN false;
-  END IF;
-  d = _::date;
+  d = _::decimal(15,4);
   RETURN true;
   EXCEPTION WHEN others THEN
     RETURN FALSE;
 END;
 $$ LANGUAGE plpgsql IMMUTABLE;
+

@@ -5,6 +5,9 @@ $$
 DECLARE
   t timestamp;
 BEGIN
+  IF _ IS NULL THEN
+    RETURN false;
+  END IF;
   t = _::timestamp;
   RETURN true;
   EXCEPTION WHEN others THEN

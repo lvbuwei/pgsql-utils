@@ -5,6 +5,9 @@ $$
 DECLARE
   d time;
 BEGIN
+  IF _ IS NULL THEN
+    RETURN false;
+  END IF;
   d = _::time;
   RETURN true;
   EXCEPTION WHEN others THEN
